@@ -1,18 +1,53 @@
-## Getting Started
+OOP (Object-Oriented Programming)** adalah pendekatan pemrograman yang mengorganisir kode dalam bentuk "objek". Objek adalah representasi dari sesuatu di dunia nyata — misalnya `Car`, `Person`, `BankAccount`. Setiap objek punya atribut (data) dan method (perilaku).
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+1 Encapsulation
 
-## Folder Structure
+Menyembunyikan data di dalam class supaya tidak bisa diutak-atik sembarangan dari luar. Atribut dibuat `private`, akses hanya boleh lewat getter/setter.
 
-The workspace contains two folders by default, where:
+private String brand; // tidak bisa diakses langsung dari luar
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+public String getBrand() { return brand; } // harus lewat sini
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+Tujuan utama: Melindungi data dari perubahan yang tidak diinginkan, Mengontrol bagaimana data diakses atau dimodifikasi.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+2 Inheritance
 
-## Dependency Management
+Class anak mewarisi atribut dan method dari class induk. Tidak perlu nulis ulang kode yang sama.
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+class ElectricCar extends Car {
+    // otomatis punya brand, speed, accelerate(), dll dari Car
+    // tinggal tambah atribut baru
+    private int batteryLevel;
+}
+
+Tujuan: Mengurangi duplikasi kode, Mempermudah pengembangan sistem.
+
+3 Polymorphism
+Satu nama, banyak bentuk. Ada dua jenisnya:
+
+-Overloading — method/constructor dengan nama sama tapi parameter berbeda
+-Overriding — method di class anak menimpa method yang sama dari class induk
+
+// Overloading: dua constructor, nama sama, parameter beda
+public Car() { ... }
+public Car(String brand, String color, ...) { ... }
+
+// Overriding: ElectricCar punya versi info() sendiri
+@Override
+public void info() {
+    System.out.println("[ElectricCar] ...");
+}
+
+4 Abstraction
+Menyembunyikan detail implementasi, hanya menampilkan fungsi yang perlu diketahui pengguna. Pakai `abstract class` atau `interface`.
+
+abstract class Vehicle {
+    public abstract void fuelType(); // wajib diisi class turunan
+}
+
+class Motorcycle extends Vehicle {
+    @Override
+    public void fuelType() {
+        System.out.println("Uses gasoline.");
+    }
+}
