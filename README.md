@@ -9,8 +9,9 @@ Menyembunyikan data di dalam class supaya tidak bisa diutak-atik sembarangan dar
 private String brand; // tidak bisa diakses langsung dari luar
 
 public String getBrand() { return brand; } // harus lewat sini
-
+```
 Tujuan: Melindungi data dari perubahan yang tidak diinginkan, Mengontrol bagaimana data diakses atau dimodifikasi.
+
 
 
 2. Inheritance
@@ -22,8 +23,9 @@ class ElectricCar extends Car {
     // otomatis punya brand, speed, accelerate(), dll dari Car
     private int batteryLevel; // tinggal tambah atribut baru
 }
-
+```
 Tujuan: Mengurangi duplikasi kode, Mempermudah pengembangan sistem.
+
 
 3. Polymorphism
 
@@ -39,6 +41,7 @@ public Car(String brand, String color, ...) { ... }
 public void info() {
     System.out.println("[ElectricCar] ...");
 }
+```
 
 
 4. Abstraction
@@ -56,6 +59,5 @@ class Motorcycle extends Vehicle {
         System.out.println("Uses gasoline.");
     }
 }
-
-
+```
 
